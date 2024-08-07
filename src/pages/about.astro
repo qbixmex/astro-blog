@@ -1,15 +1,21 @@
 ---
 const pageTitle = "Sobre mí";
+
 const identity = {
   firstName: "Daniel",
   country: "Canada",
   occupation: "Desarrollador web",
   languages: ["español", "inglés"],
 };
+
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Redacción de documentos"];
 const happy = true;
 const finished = false;
 const goal = 3;
+
+const skillColor = "hsl(205deg, 80%, 50%)";
+const fontBold = "600";
+const textUppercase = "uppercase";
 ---
 
 <html lang="en">
@@ -19,28 +25,31 @@ const goal = 3;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
-		<style>
+		<style define:vars={{skillColor,fontBold,textUppercase}}>
 			body {
 				background-color: #333;
 				color: white;
 				font-family: Arial, Helvetica, sans-serif;
 			}
-      a:link {
+      h1 {
+        color: hsl(280deg, 90%, 60%);
+        font-size: 4rem;
+      }
+      a {
         color: hsl(210deg, 80%, 50%);
         text-decoration: none;
       }
-
-      a:visited {
-        color: hsl(210deg, 80%, 44%);
-      }
-
       a:hover {
         text-decoration: underline;
       }
-
       a:active {
         color: hsl(60deg, 80%, 50%);
         text-decoration: none;
+      }
+      .skill {
+        color: var(--skillColor);
+        font-weight: var(--fontBold);
+        text-transform: var(--textUppercase);
       }
 		</style>
 	</head>
@@ -68,7 +77,7 @@ const goal = 3;
         </ul>
         <p>Mis habilidades son:</p>
         <ul>
-          {skills.map(skill => <li>{skill}</li>)}
+          {skills.map(skill => <li class="skill">{skill}</li>)}
         </ul>
 
         {happy && <p>¡Estoy feliz de aprender Astro!</p>}
