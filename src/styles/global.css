@@ -1,3 +1,6 @@
+:root {
+  --purple: hsl(280deg, 90%, 60%);
+}
 * {
   box-sizing: border-box;
 }
@@ -12,7 +15,7 @@ body {
   line-height: 1.5;
 }
 h1 {
-  color: hsl(280deg, 90%, 60%);
+  color: var(--purple);
   margin: 1rem 0;
   font-size: 2.5rem;
 }
@@ -25,6 +28,14 @@ a:hover {
 }
 a:active {
   color: hsl(60deg, 80%, 50%);
+  text-decoration: none;
+}
+.navigation a {
+  color: white;
+  transition: all 250ms ease-in-out;
+}
+.navigation a:hover {
+  color: var(--purple);
   text-decoration: none;
 }
 .skill {
