@@ -1,4 +1,5 @@
 ---
+import '../styles/global.css';
 const pageTitle = "Mi blog de Astro aprendizaje";
 ---
 
@@ -9,30 +10,6 @@ const pageTitle = "Mi blog de Astro aprendizaje";
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
-		<style>
-			body {
-				background-color: #333;
-				color: white;
-				font-family: Arial, Helvetica, sans-serif;
-			}
-      a:link {
-        color: hsl(210deg, 80%, 50%);
-        text-decoration: none;
-      }
-
-      a:visited {
-        color: hsl(210deg, 80%, 44%);
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-
-      a:active {
-        color: hsl(60deg, 80%, 50%);
-        text-decoration: none;
-      }
-		</style>
 	</head>
 	<body>
 		<body>
@@ -47,7 +24,6 @@ const pageTitle = "Mi blog de Astro aprendizaje";
       </header>
       
       <article>
-        <h1>Mi blog de Astro aprendizaje</h1>
         <p>Aquí es donde publicaré sobre mi viaje de aprendizaje Astro.</p>
 
         <ul>
