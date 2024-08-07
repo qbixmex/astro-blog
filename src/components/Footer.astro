@@ -1,0 +1,27 @@
+---
+import Social from './Social.astro';
+const platform = "github";
+const username = "qbixmex";
+---
+
+<footer>
+  <p>¡ Más información sobre mis proyectos en <a href={`https://www.${platform}.com/${username}`} target="_blank">{platform}</a> !</p>
+  <section class="social">
+    <Social platform="facebook" username="qbixmex" />
+    <Social platform="twitter" username="qbixmex" />
+    <Social platform="instagram" username="qbixmex" />
+  </section>
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .social {
+    display: flex;
+    gap: 8px;
+  }
+</style>
