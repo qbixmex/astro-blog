@@ -1,5 +1,5 @@
 ---
-import Navigation from '../components/Navigation.astro';
+import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 const pageTitle = 'Mi sitio astro';
@@ -16,9 +16,7 @@ const pageTitle = 'Mi sitio astro';
 	<body>
 		<h1>{pageTitle}</h1>
 
-		<header>
-			<Navigation />
-		</header>
+		<Header />
 
 		<article>
 			<h2>Bienvenidos a este curso de Astro</h2>
@@ -27,5 +25,9 @@ const pageTitle = 'Mi sitio astro';
 		</article>
 
 		<Footer />
+
+		<script>
+			import "../scripts/menu.js";
+		</script>
 	</body>
 </html>
