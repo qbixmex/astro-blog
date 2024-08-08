@@ -31,6 +31,14 @@ a:active {
   text-decoration: none;
 }
 
+.italic {
+  font-style: italic;
+}
+
+.bold {
+  font-weight: bold;
+}
+
 .skill {
   color: var(--skillColor);
   font-weight: var(--fontBold);
