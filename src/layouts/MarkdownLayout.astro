@@ -3,6 +3,49 @@ import BaseLayout from './BaseLayout.astro'
 const { frontmatter } = Astro.props
 ---
 <BaseLayout pageTitle={frontmatter.title}>
-  <p>Escrito por:{frontmatter.author } en <span class="bold italic">{frontmatter.pubDate.toString().slice(0,10)}</span></p>
+  <p><em>{frontmatter.description}</em></p>
+
+  <p>Escrito por: {frontmatter.author } en <span class="bold italic">{frontmatter.pubDate.toString().slice(0,10)}</span></p>
+
+  <img src={frontmatter.image.url} width="400" alt={frontmatter.image.alt} />
+
   <slot />
+
+  <section class="tags">
+    {frontmatter.tags.map((tag: string) => (
+      <a href={`/tags/${tag}`}>
+        <span class="tag">{tag}</span>
+      </a>
+    ))}
+  </section>
 </BaseLayout>
+
+<style>
+  a {
+    color: #fff;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    display: inline-block;
+    margin: 0.25em;
+    border: none;
+    border-radius: 8px;
+    padding: .5em 1em;
+    font-size: 1.15em;
+    background-color: hsl(320, 5%, 35%);
+    transition : background-color 250ms ease-in-out;
+  }
+
+  .tag:hover {
+    background-color: hsl(320, 5%, 30%);
+  }
+
+  .tag a:hover {
+    text-decoration: none;
+  }
+</style>
