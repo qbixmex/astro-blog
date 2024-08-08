@@ -1,8 +1,6 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
-const pageTitle = "Sobre mí";
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Sobre de mí";
 
 const identity = {
   firstName: "Daniel",
@@ -16,43 +14,27 @@ const happy = true;
 const finished = false;
 const goal = 3;
 ---
+<BaseLayout pageTitle={pageTitle}>
+	<h2>Mi impresionante subtítulo del blog</h2>
+  <article>
+    <h2>¡ Mi nuevo sitio <b><i>Astro</i></b> !</h2>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-	</head>
-	<body>
-		<body>
-      <h1>{pageTitle}</h1>
+    <ul>
+      <li>Me llamo {identity.firstName}.</li>
+      <li>Vivo en {identity.country} y trabajo como {identity.occupation}.</li>
+      <li>Dos de mis lenguages son:
+      { identity.languages.length === 2 && identity.languages.join(' and ') }
+      </li>
+    </ul>
+    <p>Mis habilidades son:</p>
+    <ul>
+      {skills.map(skill => <li class="skill">{skill}</li>)}
+    </ul>
 
-      <Header />
-      
-      <article>
-        <h2>¡ Mi nuevo sitio <b><i>Astro</i></b> !</h2>
+    {happy && <p>¡Estoy feliz de aprender Astro!</p>}
 
-        <ul>
-          <li>Me llamo {identity.firstName}.</li>
-          <li>Vivo en {identity.country} y trabajo como {identity.occupation}.</li>
-          <li>Dos de mis lenguages son:
-          { identity.languages.length === 2 && identity.languages.join(' and ') }
-          </li>
-        </ul>
-        <p>Mis habilidades son:</p>
-        <ul>
-          {skills.map(skill => <li class="skill">{skill}</li>)}
-        </ul>
+    {finished && <p>¡He terminado este tutorial!</p>}
 
-        {happy && <p>¡Estoy feliz de aprender Astro!</p>}
-
-        {finished && <p>¡He terminado este tutorial!</p>}
-
-        {goal === 3 ? <p>Mi objetivo es terminar en 3 días.</p> : <p>Mi objetivo no son 3 días.</p>}
-      </article>
-      <Footer />
-    </body>
-	</body>
-</html>
+    {goal === 3 ? <p>Mi objetivo es terminar en 3 días.</p> : <p>Mi objetivo no son 3 días.</p>}
+  </article>
+</BaseLayout>
